@@ -4,35 +4,18 @@
       "rootPath": "app",
       "remoteServiceName": "Default",
       "controllers": {
-        "Kompozit.Mdb.Letters.LetterAppService": {
-          "controllerName": "Letter",
-          "controllerGroupName": "Letter",
+        "Acme.BookStore.Authors.AuthorAppService": {
+          "controllerName": "Author",
+          "controllerGroupName": "Author",
           "isRemoteService": true,
           "isIntegrationService": false,
           "apiVersion": null,
-          "type": "Kompozit.Mdb.Letters.LetterAppService",
+          "type": "Acme.BookStore.Authors.AuthorAppService",
           "interfaces": [
             {
-              "type": "Kompozit.Mdb.Letters.ILetterAppService",
-              "name": "ILetterAppService",
+              "type": "Acme.BookStore.Authors.IAuthorAppService",
+              "name": "IAuthorAppService",
               "methods": [
-                {
-                  "name": "RegisterAsync",
-                  "parametersOnMethod": [
-                    {
-                      "name": "id",
-                      "typeAsString": "System.Guid, System.Private.CoreLib",
-                      "type": "System.Guid",
-                      "typeSimple": "string",
-                      "isOptional": false,
-                      "defaultValue": null
-                    }
-                  ],
-                  "returnValue": {
-                    "type": "Kompozit.Mdb.Letters.LetterDto",
-                    "typeSimple": "Kompozit.Mdb.Letters.LetterDto"
-                  }
-                },
                 {
                   "name": "GetAsync",
                   "parametersOnMethod": [
@@ -46,8 +29,8 @@
                     }
                   ],
                   "returnValue": {
-                    "type": "Kompozit.Mdb.Letters.LetterDto",
-                    "typeSimple": "Kompozit.Mdb.Letters.LetterDto"
+                    "type": "Acme.BookStore.Authors.AuthorDto",
+                    "typeSimple": "Acme.BookStore.Authors.AuthorDto"
                   }
                 },
                 {
@@ -55,16 +38,16 @@
                   "parametersOnMethod": [
                     {
                       "name": "input",
-                      "typeAsString": "Kompozit.Mdb.Shared.PagedAndSortedAndFilteredResultRequestDto, Kompozit.Mdb.Application.Contracts",
-                      "type": "Kompozit.Mdb.Shared.PagedAndSortedAndFilteredResultRequestDto",
-                      "typeSimple": "Kompozit.Mdb.Shared.PagedAndSortedAndFilteredResultRequestDto",
+                      "typeAsString": "Acme.BookStore.Authors.GetAuthorListDto, Acme.BookStore.Application.Contracts",
+                      "type": "Acme.BookStore.Authors.GetAuthorListDto",
+                      "typeSimple": "Acme.BookStore.Authors.GetAuthorListDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<Kompozit.Mdb.Letters.LetterDto>",
-                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<Kompozit.Mdb.Letters.LetterDto>"
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<Acme.BookStore.Authors.AuthorDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<Acme.BookStore.Authors.AuthorDto>"
                   }
                 },
                 {
@@ -72,16 +55,16 @@
                   "parametersOnMethod": [
                     {
                       "name": "input",
-                      "typeAsString": "Kompozit.Mdb.Letters.CreateLetterDto, Kompozit.Mdb.Application.Contracts",
-                      "type": "Kompozit.Mdb.Letters.CreateLetterDto",
-                      "typeSimple": "Kompozit.Mdb.Letters.CreateLetterDto",
+                      "typeAsString": "Acme.BookStore.Authors.CreateAuthorDto, Acme.BookStore.Application.Contracts",
+                      "type": "Acme.BookStore.Authors.CreateAuthorDto",
+                      "typeSimple": "Acme.BookStore.Authors.CreateAuthorDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "Kompozit.Mdb.Letters.LetterDto",
-                    "typeSimple": "Kompozit.Mdb.Letters.LetterDto"
+                    "type": "Acme.BookStore.Authors.AuthorDto",
+                    "typeSimple": "Acme.BookStore.Authors.AuthorDto"
                   }
                 },
                 {
@@ -97,16 +80,16 @@
                     },
                     {
                       "name": "input",
-                      "typeAsString": "Kompozit.Mdb.Letters.UpdateLetterDto, Kompozit.Mdb.Application.Contracts",
-                      "type": "Kompozit.Mdb.Letters.UpdateLetterDto",
-                      "typeSimple": "Kompozit.Mdb.Letters.UpdateLetterDto",
+                      "typeAsString": "Acme.BookStore.Authors.UpdateAuthorDto, Acme.BookStore.Application.Contracts",
+                      "type": "Acme.BookStore.Authors.UpdateAuthorDto",
+                      "typeSimple": "Acme.BookStore.Authors.UpdateAuthorDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "Kompozit.Mdb.Letters.LetterDto",
-                    "typeSimple": "Kompozit.Mdb.Letters.LetterDto"
+                    "type": "System.Void",
+                    "typeSimple": "System.Void"
                   }
                 },
                 {
@@ -130,18 +113,55 @@
             }
           ],
           "actions": {
+            "GetAsyncById": {
+              "uniqueName": "GetAsyncById",
+              "name": "GetAsync",
+              "httpMethod": "GET",
+              "url": "api/app/author/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Acme.BookStore.Authors.AuthorDto",
+                "typeSimple": "Acme.BookStore.Authors.AuthorDto"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "Acme.BookStore.Authors.IAuthorAppService"
+            },
             "GetListAsyncByInput": {
               "uniqueName": "GetListAsyncByInput",
               "name": "GetListAsync",
               "httpMethod": "GET",
-              "url": "api/app/letter",
+              "url": "api/app/author",
               "supportedVersions": [],
               "parametersOnMethod": [
                 {
                   "name": "input",
-                  "typeAsString": "Kompozit.Mdb.Shared.PagedAndSortedAndFilteredResultRequestDto, Kompozit.Mdb.Application.Contracts",
-                  "type": "Kompozit.Mdb.Shared.PagedAndSortedAndFilteredResultRequestDto",
-                  "typeSimple": "Kompozit.Mdb.Shared.PagedAndSortedAndFilteredResultRequestDto",
+                  "typeAsString": "Acme.BookStore.Authors.GetAuthorListDto, Acme.BookStore.Application.Contracts",
+                  "type": "Acme.BookStore.Authors.GetAuthorListDto",
+                  "typeSimple": "Acme.BookStore.Authors.GetAuthorListDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -197,61 +217,24 @@
                 }
               ],
               "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<Kompozit.Mdb.Letters.LetterDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<Kompozit.Mdb.Letters.LetterDto>"
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<Acme.BookStore.Authors.AuthorDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<Acme.BookStore.Authors.AuthorDto>"
               },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<Kompozit.Mdb.Letters.LetterDto,Kompozit.Mdb.Letters.LetterDto,System.Guid,Kompozit.Mdb.Shared.PagedAndSortedAndFilteredResultRequestDto>"
-            },
-            "RegisterAsyncById": {
-              "uniqueName": "RegisterAsyncById",
-              "name": "RegisterAsync",
-              "httpMethod": "POST",
-              "url": "api/app/letter/{id}/register",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "id",
-                  "typeAsString": "System.Guid, System.Private.CoreLib",
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "id",
-                  "name": "id",
-                  "jsonName": null,
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "Kompozit.Mdb.Letters.LetterDto",
-                "typeSimple": "Kompozit.Mdb.Letters.LetterDto"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Kompozit.Mdb.Letters.ILetterAppService"
+              "allowAnonymous": false,
+              "implementFrom": "Acme.BookStore.Authors.IAuthorAppService"
             },
             "CreateAsyncByInput": {
               "uniqueName": "CreateAsyncByInput",
               "name": "CreateAsync",
               "httpMethod": "POST",
-              "url": "api/app/letter",
+              "url": "api/app/author",
               "supportedVersions": [],
               "parametersOnMethod": [
                 {
                   "name": "input",
-                  "typeAsString": "Kompozit.Mdb.Letters.CreateLetterDto, Kompozit.Mdb.Application.Contracts",
-                  "type": "Kompozit.Mdb.Letters.CreateLetterDto",
-                  "typeSimple": "Kompozit.Mdb.Letters.CreateLetterDto",
+                  "typeAsString": "Acme.BookStore.Authors.CreateAuthorDto, Acme.BookStore.Application.Contracts",
+                  "type": "Acme.BookStore.Authors.CreateAuthorDto",
+                  "typeSimple": "Acme.BookStore.Authors.CreateAuthorDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -261,8 +244,8 @@
                   "nameOnMethod": "input",
                   "name": "input",
                   "jsonName": null,
-                  "type": "Kompozit.Mdb.Letters.CreateLetterDto",
-                  "typeSimple": "Kompozit.Mdb.Letters.CreateLetterDto",
+                  "type": "Acme.BookStore.Authors.CreateAuthorDto",
+                  "typeSimple": "Acme.BookStore.Authors.CreateAuthorDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -271,17 +254,17 @@
                 }
               ],
               "returnValue": {
-                "type": "Kompozit.Mdb.Letters.LetterDto",
-                "typeSimple": "Kompozit.Mdb.Letters.LetterDto"
+                "type": "Acme.BookStore.Authors.AuthorDto",
+                "typeSimple": "Acme.BookStore.Authors.AuthorDto"
               },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<Kompozit.Mdb.Letters.LetterDto,Kompozit.Mdb.Letters.CreateLetterDto>"
+              "allowAnonymous": false,
+              "implementFrom": "Acme.BookStore.Authors.IAuthorAppService"
             },
             "UpdateAsyncByIdAndInput": {
               "uniqueName": "UpdateAsyncByIdAndInput",
               "name": "UpdateAsync",
               "httpMethod": "PUT",
-              "url": "api/app/letter/{id}",
+              "url": "api/app/author/{id}",
               "supportedVersions": [],
               "parametersOnMethod": [
                 {
@@ -294,9 +277,9 @@
                 },
                 {
                   "name": "input",
-                  "typeAsString": "Kompozit.Mdb.Letters.UpdateLetterDto, Kompozit.Mdb.Application.Contracts",
-                  "type": "Kompozit.Mdb.Letters.UpdateLetterDto",
-                  "typeSimple": "Kompozit.Mdb.Letters.UpdateLetterDto",
+                  "typeAsString": "Acme.BookStore.Authors.UpdateAuthorDto, Acme.BookStore.Application.Contracts",
+                  "type": "Acme.BookStore.Authors.UpdateAuthorDto",
+                  "typeSimple": "Acme.BookStore.Authors.UpdateAuthorDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -318,8 +301,8 @@
                   "nameOnMethod": "input",
                   "name": "input",
                   "jsonName": null,
-                  "type": "Kompozit.Mdb.Letters.UpdateLetterDto",
-                  "typeSimple": "Kompozit.Mdb.Letters.UpdateLetterDto",
+                  "type": "Acme.BookStore.Authors.UpdateAuthorDto",
+                  "typeSimple": "Acme.BookStore.Authors.UpdateAuthorDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -328,17 +311,17 @@
                 }
               ],
               "returnValue": {
-                "type": "Kompozit.Mdb.Letters.LetterDto",
-                "typeSimple": "Kompozit.Mdb.Letters.LetterDto"
+                "type": "System.Void",
+                "typeSimple": "System.Void"
               },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<Kompozit.Mdb.Letters.LetterDto,System.Guid,Kompozit.Mdb.Letters.UpdateLetterDto>"
+              "allowAnonymous": false,
+              "implementFrom": "Acme.BookStore.Authors.IAuthorAppService"
             },
             "DeleteAsyncById": {
               "uniqueName": "DeleteAsyncById",
               "name": "DeleteAsync",
               "httpMethod": "DELETE",
-              "url": "api/app/letter/{id}",
+              "url": "api/app/author/{id}",
               "supportedVersions": [],
               "parametersOnMethod": [
                 {
@@ -368,83 +351,29 @@
                 "type": "System.Void",
                 "typeSimple": "System.Void"
               },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.IDeleteAppService<System.Guid>"
-            },
-            "GetAsyncById": {
-              "uniqueName": "GetAsyncById",
-              "name": "GetAsync",
-              "httpMethod": "GET",
-              "url": "api/app/letter/{id}",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "id",
-                  "typeAsString": "System.Guid, System.Private.CoreLib",
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "id",
-                  "name": "id",
-                  "jsonName": null,
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "Kompozit.Mdb.Letters.LetterDto",
-                "typeSimple": "Kompozit.Mdb.Letters.LetterDto"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<Kompozit.Mdb.Letters.LetterDto,Kompozit.Mdb.Letters.LetterDto,System.Guid,Kompozit.Mdb.Shared.PagedAndSortedAndFilteredResultRequestDto>"
+              "allowAnonymous": false,
+              "implementFrom": "Acme.BookStore.Authors.IAuthorAppService"
             }
           }
         },
-        "Kompozit.Mdb.Materials.Documents.FileAppService": {
-          "controllerName": "File",
-          "controllerGroupName": "File",
+        "Acme.BookStore.Books.BookAppService": {
+          "controllerName": "Book",
+          "controllerGroupName": "Book",
           "isRemoteService": true,
           "isIntegrationService": false,
           "apiVersion": null,
-          "type": "Kompozit.Mdb.Materials.Documents.FileAppService",
+          "type": "Acme.BookStore.Books.BookAppService",
           "interfaces": [
             {
-              "type": "Kompozit.Mdb.Materials.Documents.IFileAppService",
-              "name": "IFileAppService",
+              "type": "Acme.BookStore.Books.IBookAppService",
+              "name": "IBookAppService",
               "methods": [
                 {
-                  "name": "GetFileAsync",
-                  "parametersOnMethod": [
-                    {
-                      "name": "id",
-                      "typeAsString": "System.Guid, System.Private.CoreLib",
-                      "type": "System.Guid",
-                      "typeSimple": "string",
-                      "isOptional": false,
-                      "defaultValue": null
-                    }
-                  ],
-                  "returnValue": {
-                    "type": "Kompozit.Mdb.Materials.Documents.GetСontentFileDto",
-                    "typeSimple": "Kompozit.Mdb.Materials.Documents.GetСontentFileDto"
-                  }
-                },
-                {
-                  "name": "GetListUnrecognizedFilesAsync",
+                  "name": "GetAuthorLookupAsync",
                   "parametersOnMethod": [],
                   "returnValue": {
-                    "type": "System.Collections.Generic.IEnumerable<Kompozit.Mdb.Materials.Documents.GetListFilesDto>",
-                    "typeSimple": "[Kompozit.Mdb.Materials.Documents.GetListFilesDto]"
+                    "type": "Volo.Abp.Application.Dtos.ListResultDto<Acme.BookStore.Books.AuthorLookupDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.ListResultDto<Acme.BookStore.Books.AuthorLookupDto>"
                   }
                 },
                 {
@@ -460,8 +389,8 @@
                     }
                   ],
                   "returnValue": {
-                    "type": "Kompozit.Mdb.Materials.Documents.FileDto",
-                    "typeSimple": "Kompozit.Mdb.Materials.Documents.FileDto"
+                    "type": "Acme.BookStore.Books.BookDto",
+                    "typeSimple": "Acme.BookStore.Books.BookDto"
                   }
                 },
                 {
@@ -469,27 +398,86 @@
                   "parametersOnMethod": [
                     {
                       "name": "input",
-                      "typeAsString": "Kompozit.Mdb.Shared.PagedAndSortedAndFilteredResultRequestDto, Kompozit.Mdb.Application.Contracts",
-                      "type": "Kompozit.Mdb.Shared.PagedAndSortedAndFilteredResultRequestDto",
-                      "typeSimple": "Kompozit.Mdb.Shared.PagedAndSortedAndFilteredResultRequestDto",
+                      "typeAsString": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto, Volo.Abp.Ddd.Application.Contracts",
+                      "type": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
+                      "typeSimple": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
                   ],
                   "returnValue": {
-                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<Kompozit.Mdb.Materials.Documents.FileDto>",
-                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<Kompozit.Mdb.Materials.Documents.FileDto>"
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<Acme.BookStore.Books.BookDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<Acme.BookStore.Books.BookDto>"
+                  }
+                },
+                {
+                  "name": "CreateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "Acme.BookStore.Books.CreateUpdateBookDto, Acme.BookStore.Application.Contracts",
+                      "type": "Acme.BookStore.Books.CreateUpdateBookDto",
+                      "typeSimple": "Acme.BookStore.Books.CreateUpdateBookDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Acme.BookStore.Books.BookDto",
+                    "typeSimple": "Acme.BookStore.Books.BookDto"
+                  }
+                },
+                {
+                  "name": "UpdateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    },
+                    {
+                      "name": "input",
+                      "typeAsString": "Acme.BookStore.Books.CreateUpdateBookDto, Acme.BookStore.Application.Contracts",
+                      "type": "Acme.BookStore.Books.CreateUpdateBookDto",
+                      "typeSimple": "Acme.BookStore.Books.CreateUpdateBookDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Acme.BookStore.Books.BookDto",
+                    "typeSimple": "Acme.BookStore.Books.BookDto"
+                  }
+                },
+                {
+                  "name": "DeleteAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Void",
+                    "typeSimple": "System.Void"
                   }
                 }
               ]
             }
           ],
           "actions": {
-            "GetFileAsyncById": {
-              "uniqueName": "GetFileAsyncById",
-              "name": "GetFileAsync",
+            "GetAsyncById": {
+              "uniqueName": "GetAsyncById",
+              "name": "GetAsync",
               "httpMethod": "GET",
-              "url": "api/app/file/{id}/file",
+              "url": "api/app/book/{id}",
               "supportedVersions": [],
               "parametersOnMethod": [
                 {
@@ -516,76 +504,100 @@
                 }
               ],
               "returnValue": {
-                "type": "Kompozit.Mdb.Materials.Documents.GetСontentFileDto",
-                "typeSimple": "Kompozit.Mdb.Materials.Documents.GetСontentFileDto"
+                "type": "Acme.BookStore.Books.BookDto",
+                "typeSimple": "Acme.BookStore.Books.BookDto"
               },
-              "allowAnonymous": null,
-              "implementFrom": "Kompozit.Mdb.Materials.Documents.IFileAppService"
+              "allowAnonymous": false,
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<Acme.BookStore.Books.BookDto,Acme.BookStore.Books.BookDto,System.Guid,Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto>"
             },
-            "GetListUnrecognizedFilesAsync": {
-              "uniqueName": "GetListUnrecognizedFilesAsync",
-              "name": "GetListUnrecognizedFilesAsync",
+            "GetListAsyncByInput": {
+              "uniqueName": "GetListAsyncByInput",
+              "name": "GetListAsync",
               "httpMethod": "GET",
-              "url": "api/app/file/unrecognized-files",
+              "url": "api/app/book",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto, Volo.Abp.Ddd.Application.Contracts",
+                  "type": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
+                  "typeSimple": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "Sorting",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<Acme.BookStore.Books.BookDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<Acme.BookStore.Books.BookDto>"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<Acme.BookStore.Books.BookDto,Acme.BookStore.Books.BookDto,System.Guid,Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto>"
+            },
+            "GetAuthorLookupAsync": {
+              "uniqueName": "GetAuthorLookupAsync",
+              "name": "GetAuthorLookupAsync",
+              "httpMethod": "GET",
+              "url": "api/app/book/author-lookup",
               "supportedVersions": [],
               "parametersOnMethod": [],
               "parameters": [],
               "returnValue": {
-                "type": "System.Collections.Generic.IEnumerable<Kompozit.Mdb.Materials.Documents.GetListFilesDto>",
-                "typeSimple": "[Kompozit.Mdb.Materials.Documents.GetListFilesDto]"
+                "type": "Volo.Abp.Application.Dtos.ListResultDto<Acme.BookStore.Books.AuthorLookupDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.ListResultDto<Acme.BookStore.Books.AuthorLookupDto>"
               },
-              "allowAnonymous": null,
-              "implementFrom": "Kompozit.Mdb.Materials.Documents.IFileAppService"
+              "allowAnonymous": false,
+              "implementFrom": "Acme.BookStore.Books.IBookAppService"
             },
-            "GetAsyncById": {
-              "uniqueName": "GetAsyncById",
-              "name": "GetAsync",
-              "httpMethod": "GET",
-              "url": "api/app/file/{id}",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "id",
-                  "typeAsString": "System.Guid, System.Private.CoreLib",
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "id",
-                  "name": "id",
-                  "jsonName": null,
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "Kompozit.Mdb.Materials.Documents.FileDto",
-                "typeSimple": "Kompozit.Mdb.Materials.Documents.FileDto"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<Kompozit.Mdb.Materials.Documents.FileDto,Kompozit.Mdb.Materials.Documents.FileDto,System.Guid,Kompozit.Mdb.Shared.PagedAndSortedAndFilteredResultRequestDto>"
-            },
-            "GetListAsyncByInput": {
-              "uniqueName": "GetListAsyncByInput",
-              "name": "GetListAsync",
-              "httpMethod": "GET",
-              "url": "api/app/file",
+            "CreateAsyncByInput": {
+              "uniqueName": "CreateAsyncByInput",
+              "name": "CreateAsync",
+              "httpMethod": "POST",
+              "url": "api/app/book",
               "supportedVersions": [],
               "parametersOnMethod": [
                 {
                   "name": "input",
-                  "typeAsString": "Kompozit.Mdb.Shared.PagedAndSortedAndFilteredResultRequestDto, Kompozit.Mdb.Application.Contracts",
-                  "type": "Kompozit.Mdb.Shared.PagedAndSortedAndFilteredResultRequestDto",
-                  "typeSimple": "Kompozit.Mdb.Shared.PagedAndSortedAndFilteredResultRequestDto",
+                  "typeAsString": "Acme.BookStore.Books.CreateUpdateBookDto, Acme.BookStore.Application.Contracts",
+                  "type": "Acme.BookStore.Books.CreateUpdateBookDto",
+                  "typeSimple": "Acme.BookStore.Books.CreateUpdateBookDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -593,134 +605,29 @@
               "parameters": [
                 {
                   "nameOnMethod": "input",
-                  "name": "Filter",
+                  "name": "input",
                   "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
+                  "type": "Acme.BookStore.Books.CreateUpdateBookDto",
+                  "typeSimple": "Acme.BookStore.Books.CreateUpdateBookDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "Sorting",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "SkipCount",
-                  "jsonName": null,
-                  "type": "System.Int32",
-                  "typeSimple": "number",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "MaxResultCount",
-                  "jsonName": null,
-                  "type": "System.Int32",
-                  "typeSimple": "number",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
                 }
               ],
               "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<Kompozit.Mdb.Materials.Documents.FileDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<Kompozit.Mdb.Materials.Documents.FileDto>"
+                "type": "Acme.BookStore.Books.BookDto",
+                "typeSimple": "Acme.BookStore.Books.BookDto"
               },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<Kompozit.Mdb.Materials.Documents.FileDto,Kompozit.Mdb.Materials.Documents.FileDto,System.Guid,Kompozit.Mdb.Shared.PagedAndSortedAndFilteredResultRequestDto>"
-            }
-          }
-        },
-        "Kompozit.Mdb.Materials.MaterialAppService": {
-          "controllerName": "Material",
-          "controllerGroupName": "Material",
-          "isRemoteService": true,
-          "isIntegrationService": false,
-          "apiVersion": null,
-          "type": "Kompozit.Mdb.Materials.MaterialAppService",
-          "interfaces": [
-            {
-              "type": "Kompozit.Mdb.Materials.IMaterialAppService",
-              "name": "IMaterialAppService",
-              "methods": [
-                {
-                  "name": "GetAnnotationAsync",
-                  "parametersOnMethod": [
-                    {
-                      "name": "id",
-                      "typeAsString": "System.Guid, System.Private.CoreLib",
-                      "type": "System.Guid",
-                      "typeSimple": "string",
-                      "isOptional": false,
-                      "defaultValue": null
-                    }
-                  ],
-                  "returnValue": {
-                    "type": "Kompozit.Mdb.Materials.AnnotationDto",
-                    "typeSimple": "Kompozit.Mdb.Materials.AnnotationDto"
-                  }
-                },
-                {
-                  "name": "GetAsync",
-                  "parametersOnMethod": [
-                    {
-                      "name": "id",
-                      "typeAsString": "System.Guid, System.Private.CoreLib",
-                      "type": "System.Guid",
-                      "typeSimple": "string",
-                      "isOptional": false,
-                      "defaultValue": null
-                    }
-                  ],
-                  "returnValue": {
-                    "type": "Kompozit.Mdb.Materials.MaterialDto",
-                    "typeSimple": "Kompozit.Mdb.Materials.MaterialDto"
-                  }
-                },
-                {
-                  "name": "GetListAsync",
-                  "parametersOnMethod": [
-                    {
-                      "name": "input",
-                      "typeAsString": "Kompozit.Mdb.Shared.PagedAndSortedAndFilteredResultRequestDto, Kompozit.Mdb.Application.Contracts",
-                      "type": "Kompozit.Mdb.Shared.PagedAndSortedAndFilteredResultRequestDto",
-                      "typeSimple": "Kompozit.Mdb.Shared.PagedAndSortedAndFilteredResultRequestDto",
-                      "isOptional": false,
-                      "defaultValue": null
-                    }
-                  ],
-                  "returnValue": {
-                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<Kompozit.Mdb.Materials.MaterialDto>",
-                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<Kompozit.Mdb.Materials.MaterialDto>"
-                  }
-                }
-              ]
-            }
-          ],
-          "actions": {
-            "GetAnnotationAsyncById": {
-              "uniqueName": "GetAnnotationAsyncById",
-              "name": "GetAnnotationAsync",
-              "httpMethod": "GET",
-              "url": "api/app/material/{id}/annotation",
+              "allowAnonymous": false,
+              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<Acme.BookStore.Books.BookDto,Acme.BookStore.Books.CreateUpdateBookDto>"
+            },
+            "UpdateAsyncByIdAndInput": {
+              "uniqueName": "UpdateAsyncByIdAndInput",
+              "name": "UpdateAsync",
+              "httpMethod": "PUT",
+              "url": "api/app/book/{id}",
               "supportedVersions": [],
               "parametersOnMethod": [
                 {
@@ -730,138 +637,85 @@
                   "typeSimple": "string",
                   "isOptional": false,
                   "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "id",
-                  "name": "id",
-                  "jsonName": null,
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "Kompozit.Mdb.Materials.AnnotationDto",
-                "typeSimple": "Kompozit.Mdb.Materials.AnnotationDto"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Kompozit.Mdb.Materials.IMaterialAppService"
-            },
-            "GetAsyncById": {
-              "uniqueName": "GetAsyncById",
-              "name": "GetAsync",
-              "httpMethod": "GET",
-              "url": "api/app/material/{id}",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "id",
-                  "typeAsString": "System.Guid, System.Private.CoreLib",
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "id",
-                  "name": "id",
-                  "jsonName": null,
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "Kompozit.Mdb.Materials.MaterialDto",
-                "typeSimple": "Kompozit.Mdb.Materials.MaterialDto"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<Kompozit.Mdb.Materials.MaterialDto,Kompozit.Mdb.Materials.MaterialDto,System.Guid,Kompozit.Mdb.Shared.PagedAndSortedAndFilteredResultRequestDto>"
-            },
-            "GetListAsyncByInput": {
-              "uniqueName": "GetListAsyncByInput",
-              "name": "GetListAsync",
-              "httpMethod": "GET",
-              "url": "api/app/material",
-              "supportedVersions": [],
-              "parametersOnMethod": [
+                },
                 {
                   "name": "input",
-                  "typeAsString": "Kompozit.Mdb.Shared.PagedAndSortedAndFilteredResultRequestDto, Kompozit.Mdb.Application.Contracts",
-                  "type": "Kompozit.Mdb.Shared.PagedAndSortedAndFilteredResultRequestDto",
-                  "typeSimple": "Kompozit.Mdb.Shared.PagedAndSortedAndFilteredResultRequestDto",
+                  "typeAsString": "Acme.BookStore.Books.CreateUpdateBookDto, Acme.BookStore.Application.Contracts",
+                  "type": "Acme.BookStore.Books.CreateUpdateBookDto",
+                  "typeSimple": "Acme.BookStore.Books.CreateUpdateBookDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
               ],
               "parameters": [
                 {
-                  "nameOnMethod": "input",
-                  "name": "Filter",
+                  "nameOnMethod": "id",
+                  "name": "id",
                   "jsonName": null,
-                  "type": "System.String",
+                  "type": "System.Guid",
                   "typeSimple": "string",
                   "isOptional": false,
                   "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
                 },
                 {
                   "nameOnMethod": "input",
-                  "name": "Sorting",
+                  "name": "input",
                   "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
+                  "type": "Acme.BookStore.Books.CreateUpdateBookDto",
+                  "typeSimple": "Acme.BookStore.Books.CreateUpdateBookDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "SkipCount",
-                  "jsonName": null,
-                  "type": "System.Int32",
-                  "typeSimple": "number",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "MaxResultCount",
-                  "jsonName": null,
-                  "type": "System.Int32",
-                  "typeSimple": "number",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
                 }
               ],
               "returnValue": {
-                "type": "Volo.Abp.Application.Dtos.PagedResultDto<Kompozit.Mdb.Materials.MaterialDto>",
-                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<Kompozit.Mdb.Materials.MaterialDto>"
+                "type": "Acme.BookStore.Books.BookDto",
+                "typeSimple": "Acme.BookStore.Books.BookDto"
               },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<Kompozit.Mdb.Materials.MaterialDto,Kompozit.Mdb.Materials.MaterialDto,System.Guid,Kompozit.Mdb.Shared.PagedAndSortedAndFilteredResultRequestDto>"
+              "allowAnonymous": false,
+              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<Acme.BookStore.Books.BookDto,System.Guid,Acme.BookStore.Books.CreateUpdateBookDto>"
+            },
+            "DeleteAsyncById": {
+              "uniqueName": "DeleteAsyncById",
+              "name": "DeleteAsync",
+              "httpMethod": "DELETE",
+              "url": "api/app/book/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "Volo.Abp.Application.Services.IDeleteAppService<System.Guid>"
             }
           }
         }
@@ -869,273 +723,7 @@
     }
   },
   "types": {
-    "Kompozit.Mdb.Letters.CreateLetterDto": {
-      "baseType": null,
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "IncomingNumber",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": true,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "AdmissionDate",
-          "jsonName": null,
-          "type": "System.DateTime",
-          "typeSimple": "string",
-          "isRequired": true,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        }
-      ]
-    },
-    "Kompozit.Mdb.Letters.LetterDto": {
-      "baseType": "Volo.Abp.Application.Dtos.EntityDto<System.Guid>",
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "IncomingNumber",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "AdmissionDate",
-          "jsonName": null,
-          "type": "System.DateTime",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "IsRegistered",
-          "jsonName": null,
-          "type": "System.Boolean",
-          "typeSimple": "boolean",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        }
-      ]
-    },
-    "Kompozit.Mdb.Letters.UpdateLetterDto": {
-      "baseType": null,
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "IncomingNumber",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": true,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "AdmissionDate",
-          "jsonName": null,
-          "type": "System.DateTime",
-          "typeSimple": "string",
-          "isRequired": true,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "IsRegistered",
-          "jsonName": null,
-          "type": "System.Boolean",
-          "typeSimple": "boolean",
-          "isRequired": true,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        }
-      ]
-    },
-    "Kompozit.Mdb.Materials.AnnotationDto": {
-      "baseType": null,
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "DocumentType",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "OriginCountry",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "ShortDescription",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Articles",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Chapters",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Tags",
-          "jsonName": null,
-          "type": "[System.String]",
-          "typeSimple": "[string]",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "DocumentLanguages",
-          "jsonName": null,
-          "type": "[System.String]",
-          "typeSimple": "[string]",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        }
-      ]
-    },
-    "Kompozit.Mdb.Materials.Documents.FileDto": {
-      "baseType": "Volo.Abp.Application.Dtos.EntityDto<System.Guid>",
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "Name",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        }
-      ]
-    },
-    "Kompozit.Mdb.Materials.Documents.GetСontentFileDto": {
-      "baseType": "Volo.Abp.Application.Dtos.EntityDto<System.Guid>",
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "File",
-          "jsonName": null,
-          "type": "Volo.Abp.Content.IRemoteStreamContent",
-          "typeSimple": "Volo.Abp.Content.IRemoteStreamContent",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        }
-      ]
-    },
-    "Kompozit.Mdb.Materials.Documents.GetListFilesDto": {
-      "baseType": null,
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": []
-    },
-    "Kompozit.Mdb.Materials.MaterialDto": {
+    "Acme.BookStore.Authors.AuthorDto": {
       "baseType": "Volo.Abp.Application.Dtos.EntityDto<System.Guid>",
       "isEnum": false,
       "enumNames": null,
@@ -1155,9 +743,9 @@
           "regex": null
         },
         {
-          "name": "Provider",
+          "name": "BirthDate",
           "jsonName": null,
-          "type": "System.String",
+          "type": "System.DateTime",
           "typeSimple": "string",
           "isRequired": false,
           "minLength": null,
@@ -1167,70 +755,10 @@
           "regex": null
         },
         {
-          "name": "AdmissionDate",
-          "jsonName": null,
-          "type": "System.DateTime?",
-          "typeSimple": "string?",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "ProviderNumbers",
-          "jsonName": null,
-          "type": "[System.String]",
-          "typeSimple": "[string]",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "InternalNumber",
+          "name": "ShortBio",
           "jsonName": null,
           "type": "System.String",
           "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "IsPublished",
-          "jsonName": null,
-          "type": "System.Boolean",
-          "typeSimple": "boolean",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "IsRegistered",
-          "jsonName": null,
-          "type": "System.Boolean",
-          "typeSimple": "boolean",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Annotation",
-          "jsonName": null,
-          "type": "Kompozit.Mdb.Materials.AnnotationDto",
-          "typeSimple": "Kompozit.Mdb.Materials.AnnotationDto",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,
@@ -1240,7 +768,52 @@
         }
       ]
     },
-    "Kompozit.Mdb.Shared.PagedAndSortedAndFilteredResultRequestDto": {
+    "Acme.BookStore.Authors.CreateAuthorDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": true,
+          "minLength": 0,
+          "maxLength": 64,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "BirthDate",
+          "jsonName": null,
+          "type": "System.DateTime",
+          "typeSimple": "string",
+          "isRequired": true,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ShortBio",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Acme.BookStore.Authors.GetAuthorListDto": {
       "baseType": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
       "isEnum": false,
       "enumNames": null,
@@ -1253,6 +826,250 @@
           "type": "System.String",
           "typeSimple": "string",
           "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Acme.BookStore.Authors.UpdateAuthorDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": true,
+          "minLength": 0,
+          "maxLength": 64,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "BirthDate",
+          "jsonName": null,
+          "type": "System.DateTime",
+          "typeSimple": "string",
+          "isRequired": true,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ShortBio",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Acme.BookStore.Books.AuthorLookupDto": {
+      "baseType": "Volo.Abp.Application.Dtos.EntityDto<System.Guid>",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Acme.BookStore.Books.BookDto": {
+      "baseType": "Volo.Abp.Application.Dtos.AuditedEntityDto<System.Guid>",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "AuthorId",
+          "jsonName": null,
+          "type": "System.Guid",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "AuthorName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Type",
+          "jsonName": null,
+          "type": "Acme.BookStore.Books.BookType",
+          "typeSimple": "Acme.BookStore.Books.BookType",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "PublishDate",
+          "jsonName": null,
+          "type": "System.DateTime",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Price",
+          "jsonName": null,
+          "type": "System.Single",
+          "typeSimple": "number",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Acme.BookStore.Books.BookType": {
+      "baseType": "System.Enum",
+      "isEnum": true,
+      "enumNames": [
+        "Undefined",
+        "Adventure",
+        "Biography",
+        "Dystopia",
+        "Fantastic",
+        "Horror",
+        "Science",
+        "ScienceFiction",
+        "Poetry"
+      ],
+      "enumValues": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "genericArguments": null,
+      "properties": null
+    },
+    "Acme.BookStore.Books.CreateUpdateBookDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "AuthorId",
+          "jsonName": null,
+          "type": "System.Guid",
+          "typeSimple": "string",
+          "isRequired": true,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": true,
+          "minLength": 0,
+          "maxLength": 128,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Type",
+          "jsonName": null,
+          "type": "Acme.BookStore.Books.BookType",
+          "typeSimple": "Acme.BookStore.Books.BookType",
+          "isRequired": true,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "PublishDate",
+          "jsonName": null,
+          "type": "System.DateTime",
+          "typeSimple": "string",
+          "isRequired": true,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Price",
+          "jsonName": null,
+          "type": "System.Single",
+          "typeSimple": "number",
+          "isRequired": true,
           "minLength": null,
           "maxLength": null,
           "minimum": null,
@@ -1761,6 +1578,76 @@
           "jsonName": null,
           "type": "System.Boolean",
           "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.Application.Dtos.AuditedEntityDto<T0>": {
+      "baseType": "Volo.Abp.Application.Dtos.CreationAuditedEntityDto<TPrimaryKey>",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": [
+        "TPrimaryKey"
+      ],
+      "properties": [
+        {
+          "name": "LastModificationTime",
+          "jsonName": null,
+          "type": "System.DateTime?",
+          "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "LastModifierId",
+          "jsonName": null,
+          "type": "System.Guid?",
+          "typeSimple": "string?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Volo.Abp.Application.Dtos.CreationAuditedEntityDto<T0>": {
+      "baseType": "Volo.Abp.Application.Dtos.EntityDto<TPrimaryKey>",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": [
+        "TPrimaryKey"
+      ],
+      "properties": [
+        {
+          "name": "CreationTime",
+          "jsonName": null,
+          "type": "System.DateTime",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "CreatorId",
+          "jsonName": null,
+          "type": "System.Guid?",
+          "typeSimple": "string?",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,
@@ -3775,51 +3662,6 @@
         }
       ]
     },
-    "Volo.Abp.Content.IRemoteStreamContent": {
-      "baseType": null,
-      "isEnum": false,
-      "enumNames": null,
-      "enumValues": null,
-      "genericArguments": null,
-      "properties": [
-        {
-          "name": "FileName",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "ContentType",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "ContentLength",
-          "jsonName": null,
-          "type": "System.Int64?",
-          "typeSimple": "number?",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        }
-      ]
-    },
     "Volo.Abp.FeatureManagement.FeatureDto": {
       "baseType": null,
       "isEnum": false,
@@ -5595,6 +5437,18 @@
         },
         {
           "name": "TwoLetterISOLanguageName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "FlagIcon",
           "jsonName": null,
           "type": "System.String",
           "typeSimple": "string",

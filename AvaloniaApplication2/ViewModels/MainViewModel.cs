@@ -1,6 +1,4 @@
 ﻿using AvaloniaApplication2.Models;
-using AvaloniaApplication2.Views;
-using Kompozit.Mdb.Materials.Documents;
 using ReactiveUI;
 using System.Windows.Input;
 

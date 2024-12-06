@@ -1,8 +1,7 @@
-﻿using Kompozit.Mdb.Materials.Documents;
+﻿using Acme.BookStore.Books;
 using System.Threading.Tasks;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.DependencyInjection;
-using Volo.Abp.VirtualFileSystem;
 
 namespace AvaloniaApplication2.Models;
 
@@ -10,19 +9,20 @@ internal class BusinessService : IBusinessService, ITransientDependency
 {
     //private IVirtualFileProvider _virtualFileProvider;
 
-    private IFileAppService _fileAppService;
+    private IBookAppService _bookAppService;
 
-    public BusinessService(IFileAppService fileAppService) //IVirtualFileProvider virtualFileProvider, 
+    public BusinessService(IBookAppService fileAppService) //IVirtualFileProvider virtualFileProvider, 
     {
-        _fileAppService = fileAppService;
+        _bookAppService = fileAppService;
         //_virtualFileProvider = virtualFileProvider;
     }
 
     public async Task DoSomething()
     {
         //var exists = CheckFileExists();
-        await _fileAppService.GetListUnrecognizedFilesAsync();
-        var q = await _fileAppService.GetListUnrecognizedFilesAsync();
+        PagedAndSortedResultRequestDto pagedAndSortedResultRequestDto = new();
+        await _bookAppService.GetListAsync(pagedAndSortedResultRequestDto);
+        var q = await _bookAppService.GetListAsync(pagedAndSortedResultRequestDto);
     }
 
     //private bool CheckFileExists()

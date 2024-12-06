@@ -1,10 +1,6 @@
-﻿using AvaloniaApplication2.ViewModels;
-using Kompozit.Mdb.Materials.Documents;
+﻿using Acme.BookStore.Books;
+using AvaloniaApplication2.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
-using Volo.Abp.AspNetCore;
-using Volo.Abp.Modularity;
-using Volo.Abp.VirtualFileSystem;
-using YamlDotNet.Serialization.NodeDeserializers;
 
 namespace AvaloniaApplication2.Models;
 
@@ -27,7 +23,7 @@ public static class ServiceCollectionExtensions
         //        typeof(FileClientProxy).Assembly
         //    );
 
-        collection.AddSingleton<IFileAppService, FileClientProxy>();
+        collection.AddSingleton<IBookAppService, BookClientProxy>();
 
         collection.AddTransient<IBusinessService, BusinessService>();
         collection.AddTransient<MainViewModel>();
